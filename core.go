@@ -1,10 +1,10 @@
 package core
 
 import (
-	"github.com/weiloon1234/go_core2/db"
-	"github.com/weiloon1234/go_core2/localization"
-	"github.com/weiloon1234/go_core2/redis"
-	"github.com/weiloon1234/go_core2/timezone"
+	"core2/db"
+	"core2/localization"
+	"core2/redis"
+	"core2/timezone"
 	"log"
 )
 

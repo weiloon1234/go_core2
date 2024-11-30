@@ -1,6 +1,7 @@
 package db
 
 import (
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
 )
@@ -11,14 +12,14 @@ type Config struct {
 
 var db *gorm.DB
 
-func InitDB(config Config) {
+func Init(config Config) error {
 	var err error
 	dsn := config.DSN
 	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
-
 	if err != nil {
-		panic("failed to connect database")
+		return err
 	}
+	return nil
 }
 
 func GetDB() *gorm.DB {

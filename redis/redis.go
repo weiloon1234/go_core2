@@ -2,7 +2,6 @@ package redis
 
 import (
 	"context"
-	"fmt"
 	"github.com/go-redis/redis/v8"
 	"time"
 )
@@ -29,7 +28,7 @@ func Init(config Config) error {
 
 	_, err := client.Ping(ctx).Result()
 	if err != nil {
-		panic(fmt.Sprintf("Failed to connect to Redis: %v", err))
+		return err
 	}
 
 	return nil
