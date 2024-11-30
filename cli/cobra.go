@@ -5,25 +5,20 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// rootCmd is the root of the CLI
 var rootCmd = &cobra.Command{
-	Use:   "app",
-	Short: "A core2 application",
+	Use:   "cli",
+	Short: "CLI for core2 tasks",
+	Long:  "CLI for running various core2 tasks such as migrations and seeding",
 }
 
-// Expose RootCmd for extension
+// RootCmd exposes the root command for extensions
 func RootCmd() *cobra.Command {
 	return rootCmd
 }
 
-// Init adds additional commands during initialization
+// Init initializes core commands and adds additional commands
 func Init(additionalCmds []*cobra.Command) {
-	rootCmd.AddCommand(commands.MigrateCmd)
-	rootCmd.AddCommand(commands.SeederCmd)
-
+	commands.InitCommands(rootCmd)
 	rootCmd.AddCommand(additionalCmds...)
-}
-
-// Execute starts the CLI application
-func Execute() {
-	rootCmd.Execute()
 }

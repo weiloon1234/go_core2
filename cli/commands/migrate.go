@@ -13,7 +13,6 @@ import (
 	"strconv"
 )
 
-// MigrateCmd defines the migration command
 var MigrateCmd = &cobra.Command{
 	Use:   "migrate [action] [optional arguments]",
 	Short: "Run database migrations (e.g., create, up, down, force)",
@@ -23,7 +22,6 @@ var MigrateCmd = &cobra.Command{
 		config := core.GetSharedConfig()
 
 		dsn := config.DBConfig.DSN
-
 		if dsn == "" {
 			return errors.New("DB_DSN not set in environment variables or .env file")
 		}
@@ -71,10 +69,7 @@ func createMigration(name string) error {
 }
 
 func runMigration(dsn string, direction string) error {
-	m, err := migrate.New(
-		"file://database/migrations", // Path to migration files
-		dsn,
-	)
+	m, err := migrate.New("file://database/migrations", dsn)
 	if err != nil {
 		return fmt.Errorf("migration setup failed: %v", err)
 	}
@@ -97,10 +92,7 @@ func runMigration(dsn string, direction string) error {
 }
 
 func forceMigration(dsn string, version int) error {
-	m, err := migrate.New(
-		"file://database/migrations", // Path to migration files
-		dsn,
-	)
+	m, err := migrate.New("file://database/migrations", dsn)
 	if err != nil {
 		return fmt.Errorf("migration setup failed: %v", err)
 	}

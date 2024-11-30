@@ -26,7 +26,7 @@ var SeederCmd = &cobra.Command{
 	Use:   "seed [seeder_name]",
 	Short: "Run a specific database seeder",
 	Long:  "Run a specific database seeder by name",
-	Args:  cobra.MinimumNArgs(1), // Requires at least one argument
+	Args:  cobra.MinimumNArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		seederName := args[0]
 
