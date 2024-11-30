@@ -15,15 +15,27 @@ type Features struct {
 	EnableLocale bool
 }
 
+// DBConfig Re-export
+type DBConfig = database.DBConfig
+
+// RedisConfig Re-export
+type RedisConfig = database.RedisConfig
+
+// LocaleConfig Re-export
+type LocaleConfig = localization.LocaleConfig
+
+// UploadConfig Re-export
+type UploadConfig = storage.UploadConfig
+
 // Config holds configuration for all components
 type Config struct {
-	DBConfig           database.DBConfig
-	RedisConfig        database.RedisConfig
-	LocalizationConfig localization.Config
+	DBConfig           DBConfig
+	RedisConfig        RedisConfig
+	LocalizationConfig LocaleConfig
 	Timezone           string
 	StorageProvider    string
 	StorageConfig      map[string]string
-	UploadConfig       storage.UploadConfig
+	UploadConfig       UploadConfig
 	Features           Features
 }
 

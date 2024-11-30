@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-type Config struct {
+type LocaleConfig struct {
 	DefaultLanguage    string
 	SupportedLanguages []string
 	TranslationPaths   []string // Paths to search for locale files
@@ -22,7 +22,7 @@ var (
 	translations       = make(map[string]map[string]string) // locale -> key -> translation
 )
 
-func Init(config Config) {
+func Init(config LocaleConfig) {
 	defaultLanguage = config.DefaultLanguage
 	supportedLanguages = config.SupportedLanguages
 
