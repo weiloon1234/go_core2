@@ -1,4 +1,4 @@
-package redis
+package database
 
 import (
 	"context"
@@ -8,14 +8,14 @@ import (
 
 var client *redis.Client
 
-type Config struct {
+type RedisConfig struct {
 	Addr     string
 	Password string
 	DB       int
 	Prefix   string
 }
 
-func Init(config Config) error {
+func InitRedis(config RedisConfig) error {
 	client = redis.NewClient(&redis.Options{
 		Addr:     config.Addr,
 		Password: config.Password,

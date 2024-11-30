@@ -1,10 +1,9 @@
 package go_core2
 
 import (
-	"github.com/weiloon1234/go_core2/db"
+	"github.com/weiloon1234/go_core2/database"
 	"github.com/weiloon1234/go_core2/environment"
 	"github.com/weiloon1234/go_core2/localization"
-	"github.com/weiloon1234/go_core2/redis"
 	"github.com/weiloon1234/go_core2/storage"
 	"log"
 )
@@ -18,8 +17,8 @@ type Features struct {
 
 // Config holds configuration for all components
 type Config struct {
-	DBConfig           db.Config
-	RedisConfig        redis.Config
+	DBConfig           database.DBConfig
+	RedisConfig        database.RedisConfig
 	LocalizationConfig localization.Config
 	Timezone           string
 	StorageProvider    string
@@ -68,14 +67,14 @@ func Init(config Config) {
 
 	// Initialize Database
 	if config.Features.EnableDB {
-		if err := db.Init(config.DBConfig); err != nil {
+		if err := database.Init(config.DBConfig); err != nil {
 			log.Fatalf("Failed to initialize DB: %v", err)
 		}
 	}
 
 	// Initialize Redis
 	if config.Features.EnableRedis {
-		if err := redis.Init(config.RedisConfig); err != nil {
+		if err := database.InitRedis(config.RedisConfig); err != nil {
 			log.Fatalf("Failed to initialize Redis: %v", err)
 		}
 	}

@@ -1,4 +1,4 @@
-package db
+package database
 
 import (
 	"gorm.io/driver/mysql"
@@ -6,13 +6,13 @@ import (
 	"log"
 )
 
-type Config struct {
+type DBConfig struct {
 	DSN string
 }
 
 var db *gorm.DB
 
-func Init(config Config) error {
+func Init(config DBConfig) error {
 	var err error
 	dsn := config.DSN
 	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
