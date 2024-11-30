@@ -1,0 +1,5 @@
+{
+  "Hello world":                 "你好，世界",
+  "Hello world with :attribute": "你好，:attribute",
+  "Email":                       "电子邮件地址"
+}
