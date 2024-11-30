@@ -1,6 +1,7 @@
 package cli
 
 import (
+	"core2/cli/commands"
 	"github.com/spf13/cobra"
 )
 
@@ -16,6 +17,9 @@ func RootCmd() *cobra.Command {
 
 // Init adds additional commands during initialization
 func Init(additionalCmds []*cobra.Command) {
+	rootCmd.AddCommand(commands.MigrateCmd)
+	rootCmd.AddCommand(commands.SeederCmd)
+
 	rootCmd.AddCommand(additionalCmds...)
 }
 
