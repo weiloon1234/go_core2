@@ -1,4 +1,4 @@
-module core2
+module github.com/weiloon1234/go_core2
 
 go 1.23.3
 
