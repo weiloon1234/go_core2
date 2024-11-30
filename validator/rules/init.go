@@ -1,6 +1,6 @@
 package rules
 
-import "core2/validator"
+import "github.com/weiloon1234/go_core2/validator"
 
 func init() {
 	// Register all core rules
