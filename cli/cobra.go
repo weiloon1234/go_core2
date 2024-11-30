@@ -1,8 +1,8 @@
 package cli
 
 import (
-	"core2/cli/commands"
 	"github.com/spf13/cobra"
+	"github.com/weiloon1234/go_core2/cli/commands"
 )
 
 // rootCmd is the root of the CLI

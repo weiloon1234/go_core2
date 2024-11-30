@@ -1,7 +1,6 @@
 package commands
 
 import (
-	core "core2"
 	"errors"
 	"fmt"
 	"github.com/golang-migrate/migrate/v4"
@@ -9,6 +8,7 @@ import (
 	_ "github.com/golang-migrate/migrate/v4/source/file"    // For file source migrations
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
+	core "github.com/weiloon1234/go_core2"
 	"os/exec"
 	"strconv"
 )

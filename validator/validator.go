@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"core2/localization"
 	"github.com/gin-gonic/gin"
+	"github.com/weiloon1234/go_core2/localization"
 )
 
 type Validator struct {
