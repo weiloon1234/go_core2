@@ -118,7 +118,7 @@ func Middleware() gin.HandlerFunc {
 }
 
 // __ translates a key with optional attributes.
-func __(c *gin.Context, key string, attributes ...map[string]string) string {
+func Translate(c *gin.Context, key string, attributes ...map[string]string) string {
 	// Check if attributes are provided
 	var attr map[string]string
 	if len(attributes) > 0 {
@@ -132,11 +132,11 @@ func __(c *gin.Context, key string, attributes ...map[string]string) string {
 	}
 
 	// Perform the translation
-	return Translate(locale.(string), key, attr)
+	return TranslateKey(locale.(string), key, attr)
 }
 
-// Translate translates a given key into the specified locale
-func Translate(locale, key string, attributes map[string]string) string {
+// TranslateKey a given key into the specified locale
+func TranslateKey(locale, key string, attributes map[string]string) string {
 	translation := translations[locale][key]
 	if translation == "" {
 		translation = translations[defaultLanguage][key] // Fallback to default language
