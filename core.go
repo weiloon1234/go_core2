@@ -1,4 +1,4 @@
-package core
+package go_core2
 
 import (
 	"github.com/weiloon1234/go_core2/db"
